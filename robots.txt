@@ -1,0 +1,10 @@
+# UNISON EMBODIMENT
+# https://www.unisonembodiment.com
+
+User-agent: *
+Allow: /
+
+# Legal and policy pages are fine to index.
+# Nothing on this site requires authentication.
+
+Sitemap: https://www.unisonembodiment.com/sitemap.xml
