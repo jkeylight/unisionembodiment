@@ -1838,3 +1838,15 @@ a:hover img { filter: saturate(1) contrast(1.02); }
   .page-hero { padding-top: 8rem; }
   .page-hero .display { font-size: clamp(3rem, 14vw, 5.5rem); }
 }
+
+/* Keep legacy light-on-dark editorial treatments legible on the new paper palette */
+.section--ink .journal-quote--light p,
+.section--ink .journal-quote--light p.italic { color: var(--ink) !important; }
+.section--ink .journal-quote--light p.italic { color: var(--gold-text) !important; }
+.transition__mark { width: clamp(3rem, 5vw, 4rem); height: auto; }
+.transition__mark path {
+  stroke-dasharray: 260;
+  stroke-dashoffset: 0;
+}
+.nav__links a.is-active { color: var(--gold-text) !important; }
+.nav__links a.is-active::after { background: var(--gold); }
