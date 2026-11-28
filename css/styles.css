@@ -1746,3 +1746,35 @@ img { color: var(--ink); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+
+/* Signature lotus — a quiet, breathing mark in the header */
+.brand__mark { overflow: visible; }
+.brand__mark path {
+  transform-box: fill-box;
+  transform-origin: 50% 85%;
+  animation: lotus-breathe 6.8s ease-in-out infinite;
+}
+.brand__mark path:nth-child(2),
+.brand__mark path:nth-child(4) { animation-delay: -.35s; }
+.brand__mark path:nth-child(3),
+.brand__mark path:nth-child(5) { animation-delay: -.7s; }
+.brand__mark path:nth-child(6) { animation-delay: -1.05s; }
+@keyframes lotus-breathe {
+  0%, 100% { transform: translateY(0) scaleY(1); opacity: .88; }
+  50% { transform: translateY(-1px) scaleY(1.035); opacity: 1; }
+}
+.brand:hover .brand__mark path { animation-duration: 2.8s; }
+@media (prefers-reduced-motion: reduce) {
+  .brand__mark path { animation: none !important; }
+}
+
+/* Accent wash used only for small editorial details */
+.label::selection, .num::selection { background: #E9DFCF; color: #171614; }
+.section--paper .label { color: var(--gold-text); }
+.case__meta .num { color: var(--gold-text); }
+.form-success { background: #F3EFF6; border-color: rgba(184,169,201,.55); }
+.enquiry-form input:focus, .enquiry-form textarea:focus, .enquiry-form select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(183,154,98,.12);
+}
