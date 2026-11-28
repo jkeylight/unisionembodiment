@@ -101,7 +101,10 @@
       path.style.strokeDasharray = length;
       path.style.strokeDashoffset = length;
     });
-    tl.to(petals, { strokeDashoffset: 0, duration: 1.35, stagger: 0.12, ease: 'power2.inOut' }, 0.1)
+    tl.fromTo(petals,
+        { scale: 0.22, transformOrigin: '50% 92%' },
+        { scale: 1, duration: 1.05, stagger: 0.1, ease: 'back.out(1.35)' }, 0.05)
+      .to(petals, { strokeDashoffset: 0, duration: 1.35, stagger: 0.12, ease: 'power2.inOut' }, 0.1)
       .to(petals, { attr: { 'fill-opacity': 0.12 }, strokeOpacity: 0.82, duration: 0.7, stagger: 0.035, ease: 'power2.out' }, 1.25)
       .to(word, { opacity: 1, letterSpacing: '0.34em', duration: 1.5, ease: 'power3.out' }, 0.35)
       .to(sub, { opacity: 1, duration: 1, ease: 'power2.out' }, 0.75)
