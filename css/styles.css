@@ -1778,3 +1778,63 @@ img { color: var(--ink); }
   border-color: var(--gold);
   box-shadow: 0 0 0 3px rgba(183,154,98,.12);
 }
+
+
+/* Final palette corrections across legacy page modules */
+.section--ink { background: #F8F6F2 !important; color: var(--ink) !important; }
+.section--ink * { color: inherit; }
+.section--ink .label, .section--ink .num, .section--ink .step__num { color: var(--gold-text) !important; }
+.section--ink p, .section--ink li, .section--ink .lede { color: var(--ink-70) !important; }
+.footer { background: #fff !important; color: var(--ink-70) !important; }
+.footer p, .footer li, .footer a, .footer__base, .footer__base span { color: var(--ink-70) !important; }
+.footer a:hover { color: var(--gold-text) !important; }
+.footer h4, .footer__brand .brand__text, .footer__brand .brand__sub { color: var(--ink) !important; }
+.footer__base { border-top-color: var(--stone) !important; }
+.transition__panel { background: #F8F6F2 !important; }
+.transition__panel--paper { background: #fff !important; }
+.transition__mark { color: var(--gold) !important; }
+.brand__mark { width: clamp(2.4rem, 4vw, 3.25rem); height: auto; }
+.preloader__mark { width: clamp(6rem, 10vw, 8rem); }
+
+/* A restrained rose / lavender photographic atmosphere */
+.hero__figure .frame::before,
+.split__media::after,
+.reveal-img::after,
+.hscroll__item::after,
+.case__image::after {
+  background: linear-gradient(135deg, rgba(216,174,183,.12), transparent 44%, rgba(184,169,201,.13));
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+.split__media, .reveal-img, .hscroll__item, .case__image { position: relative; overflow: hidden; }
+.split__media::after, .reveal-img::after, .hscroll__item::after, .case__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.hero__figure img, .split__media img, .reveal-img img, .hscroll__item img, .case__image img {
+  filter: saturate(.9) contrast(1.015);
+  transition: transform 1.4s cubic-bezier(.16,1,.3,1), filter 1s ease;
+}
+a:hover img { filter: saturate(1) contrast(1.02); }
+
+/* Mobile navigation: clear, high-contrast and touch-friendly */
+@media (max-width: 900px) {
+  .nav__links {
+    background: rgba(255,255,255,.98) !important;
+    border-top: 1px solid var(--stone);
+    box-shadow: 0 20px 40px rgba(23,22,20,.06);
+  }
+  .nav__links a { color: var(--ink) !important; }
+  .nav__links .nav__cta { color: var(--gold-text) !important; }
+  .nav__toggle { color: var(--ink); }
+}
+@media (max-width: 700px) {
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem 1.25rem; }
+  .footer__brand { grid-column: 1 / -1; }
+  .footer__base { display: flex; flex-direction: column; gap: .5rem; align-items: flex-start; }
+  .hero__figure { padding-inline: var(--gutter); }
+  .hero__figure figcaption { padding-inline: 0; }
+  .page-hero { padding-top: 8rem; }
+  .page-hero .display { font-size: clamp(3rem, 14vw, 5.5rem); }
+}
