@@ -57,6 +57,16 @@
   function runPreloader() {
     var pre = document.querySelector('.preloader');
     if (!pre) return;
+    var lotusMarkup = '<path d="M60 73 C45 59 42 43 60 12 C78 43 75 59 60 73Z" fill="currentColor" fill-opacity="0"/><path d="M57 72 C37 63 25 49 25 31 C43 37 55 51 57 72Z" fill="currentColor" fill-opacity="0"/><path d="M63 72 C83 63 95 49 95 31 C77 37 65 51 63 72Z" fill="currentColor" fill-opacity="0"/><path d="M55 73 C35 72 18 64 10 50 C31 48 47 57 55 73Z" fill="currentColor" fill-opacity="0"/><path d="M65 73 C85 72 102 64 110 50 C89 48 73 57 65 73Z" fill="currentColor" fill-opacity="0"/><path d="M60 70 C57 77 56 82 60 88 C64 82 63 77 60 70Z" fill="currentColor" fill-opacity="0"/><path d="M60 73 C49 79 39 82 27 82 M60 73 C71 79 81 82 93 82 M27 82 C42 87 78 87 93 82"/>';
+    var preMark = pre.querySelector('.preloader__mark');
+    if (preMark) {
+      preMark.setAttribute('viewBox', '0 0 120 92');
+      preMark.innerHTML = lotusMarkup;
+    }
+    document.querySelectorAll('.brand__mark').forEach(function (brandMark) {
+      brandMark.setAttribute('viewBox', '0 0 120 92');
+      brandMark.innerHTML = lotusMarkup;
+    });
     if (reduceMotion || !hasGSAP) { pre.remove(); docEl.classList.add('is-loaded'); return; }
 
     var mark = pre.querySelector('.preloader__mark');
