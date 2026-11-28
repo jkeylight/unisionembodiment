@@ -1626,3 +1626,123 @@ html:not(.js) .reveal-img::after { display: none; }
   .case__blocks { grid-template-columns: minmax(0, 1fr); }
 }
 
+
+
+/* ============================================================
+   THE ART OF WHOLENESS — WHITE EDITORIAL DESIGN SYSTEM
+   ============================================================ */
+:root {
+  --porcelain: #FFFFFF;
+  --paper: #F8F6F2;
+  --stone: #E8E2D9;
+  --ink: #171614;
+  --gold: #B79A62;
+  --gold-text: #856B3E;
+  --gold-lt: #D9C9A7;
+  --sage: #9A9A8D;
+  --lavender: #B8A9C9;
+  --rose: #D8AEB7;
+  --ink-70: rgba(23,22,20,.72);
+  --ink-50: rgba(23,22,20,.52);
+  --ink-35: rgba(23,22,20,.34);
+  --ink-15: rgba(23,22,20,.14);
+  --gold-40: rgba(183,154,98,.4);
+}
+html { background: #fff; }
+body { background: #fff; color: var(--ink); }
+::selection { background: #E9DFCF; color: #171614; }
+:focus-visible { outline-color: var(--gold); }
+.nav.is-scrolled { background: rgba(255,255,255,.88); box-shadow: 0 1px 0 rgba(23,22,20,.07); }
+.nav__cta { border-color: var(--gold); }
+.nav__cta::after { background: var(--gold); }
+.nav__cta:hover span { color: #fff; }
+.brand__mark, .preloader__mark { color: var(--gold); }
+.label, .num { color: var(--gold-text); }
+.hero { background: #fff; }
+.hero__figure .frame::after { background: #fff; }
+.section--paper, .case--paper { background: var(--paper); }
+.section--ink {
+  background: #F8F6F2;
+  color: var(--ink);
+}
+.section--ink h1, .section--ink h2, .section--ink h3 { color: var(--ink); }
+.section--ink p, .section--ink .split__body p, .section--ink .prose p,
+.section--ink .care p, .section--ink.cta-band p { color: var(--ink-70); }
+.section--ink .label { color: var(--gold-text); }
+.section--ink .link-underline { color: var(--ink) !important; }
+.section--ink .split__media { border: 1px solid rgba(183,154,98,.28); }
+.footer { background: #fff; border-top: 1px solid var(--stone); }
+.footer__grid h4, .footer h4 { color: var(--ink); }
+.footer__brand .brand__mark { color: var(--gold); }
+.cta-band { background: linear-gradient(115deg, #fff 0%, #FBF8F5 65%, #F5F0F7 100%); }
+.btn { border-color: var(--gold); background: var(--gold); color: #fff; }
+.btn:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+.link-underline::after { background: var(--gold); }
+.marquee { border-color: var(--stone); }
+.marquee__item i { background: var(--gold); }
+.manifesto .accent { color: var(--gold-text); }
+.premise { border-left-color: var(--gold-40); }
+.step__num { color: var(--gold-text); }
+.step::after { background: var(--gold); }
+.progress i { background: var(--gold); }
+.transition__panel { background: #171614; }
+.transition__panel--paper { background: #fff; }
+.transition__mark { color: var(--gold); }
+.preloader { background: #fff; }
+.preloader__bar { background: #E8E2D9; }
+.preloader__bar i { background: var(--gold); }
+.nav__links { background: #fff; }
+.case__quote { border-left-color: var(--gold); }
+.flag { display: none !important; }
+
+/* Editorial image treatment */
+img { color: var(--ink); }
+.hero__figure img, .split__media img, .hscroll__item img {
+  filter: saturate(.88) contrast(.98);
+}
+.hero__figure .frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(145deg, rgba(216,174,183,.08), transparent 48%, rgba(184,169,201,.08));
+  mix-blend-mode: multiply;
+}
+.hscroll__item figcaption { color: var(--ink-70); }
+.hscroll__progress { background: var(--stone); }
+.hscroll__progress i { background: var(--gold); }
+.dims .dim, .who__col, .case__blocks > div { border-color: var(--stone); }
+.num, .step__num { font-variant-numeric: tabular-nums; }
+
+/* Soft botanical details — no particles or decorative clutter */
+.sec-head .label::before, .section > .wrap > .label::before {
+  color: var(--rose);
+}
+.section--paper { background: #F8F6F2; }
+.quote blockquote { color: var(--ink); }
+.quote figcaption { color: var(--gold-text); }
+
+/* Responsive refinements */
+@media (max-width: 900px) {
+  .nav__links { background: #fff; }
+  .nav__links a { border-color: var(--stone); }
+  .hero { padding-top: 7.5rem; }
+  .hero__figure { max-width: none; }
+}
+@media (max-width: 700px) {
+  body { font-size: 1rem; }
+  .display { font-size: clamp(3.15rem, 15vw, 6rem); }
+  .hero__figure { margin-top: 2rem; }
+  .section { padding-block: 4.25rem; }
+  .hscroll { overflow: visible; }
+  .hscroll__pin { height: auto !important; overflow: visible; }
+  .hscroll__track { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; transform: none !important; }
+  .hscroll__item { min-width: 0; width: auto; }
+  .hscroll__item:nth-child(5) { grid-column: 1 / -1; }
+  .hscroll__item img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .hscroll__progress { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
