@@ -1850,3 +1850,5 @@ a:hover img { filter: saturate(1) contrast(1.02); }
 }
 .nav__links a.is-active { color: var(--gold-text) !important; }
 .nav__links a.is-active::after { background: var(--gold); }
+
+:root { color-scheme: light; }
