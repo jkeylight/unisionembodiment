@@ -59,7 +59,8 @@
     if (!pre) return;
     if (reduceMotion || !hasGSAP) { pre.remove(); docEl.classList.add('is-loaded'); return; }
 
-    var mark = pre.querySelector('.preloader__mark path');
+    var mark = pre.querySelector('.preloader__mark');
+    var petals = mark ? Array.prototype.slice.call(mark.querySelectorAll('path')) : [];
     var word = pre.querySelector('.preloader__word');
     var sub = pre.querySelector('.preloader__sub');
     var count = pre.querySelector('.preloader__count');
@@ -79,13 +80,14 @@
       }
     });
 
-    if (mark && mark.getTotalLength) {
-      var len = Math.ceil(mark.getTotalLength());
-      mark.style.strokeDasharray = len;
-      mark.style.strokeDashoffset = len;
-    }
-    tl.to(mark, { strokeDashoffset: 0, duration: 1.55, ease: 'power2.inOut' }, 0.1)
-      .to(mark, { attr: { 'fill-opacity': 1 }, strokeOpacity: 0, duration: 0.75, ease: 'power2.out' }, 1.25)
+    petals.forEach(function (path) {
+      if (!path.getTotalLength) return;
+      var length = Math.ceil(path.getTotalLength());
+      path.style.strokeDasharray = length;
+      path.style.strokeDashoffset = length;
+    });
+    tl.to(petals, { strokeDashoffset: 0, duration: 1.35, stagger: 0.12, ease: 'power2.inOut' }, 0.1)
+      .to(petals, { attr: { 'fill-opacity': 0.12 }, strokeOpacity: 0.82, duration: 0.7, stagger: 0.035, ease: 'power2.out' }, 1.25)
       .to(word, { opacity: 1, letterSpacing: '0.34em', duration: 1.5, ease: 'power3.out' }, 0.35)
       .to(sub, { opacity: 1, duration: 1, ease: 'power2.out' }, 0.75)
       .to(state, {
