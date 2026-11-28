@@ -67,6 +67,11 @@
       brandMark.setAttribute('viewBox', '0 0 120 92');
       brandMark.innerHTML = lotusMarkup;
     });
+    var transitionMark = document.querySelector('.transition__mark');
+    if (transitionMark) {
+      transitionMark.setAttribute('viewBox', '0 0 120 92');
+      transitionMark.innerHTML = lotusMarkup;
+    }
     if (reduceMotion || !hasGSAP) { pre.remove(); docEl.classList.add('is-loaded'); return; }
 
     var mark = pre.querySelector('.preloader__mark');
